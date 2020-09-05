@@ -22,6 +22,7 @@ public class Bullet {
         this.tankFrame = tankFrame;
         this.group = group;
         rect  = new Rectangle(x,y,WIDTH,HEIGHT);
+        this.tankFrame.bulletList.add(this);
     }
 
     public void paint(Graphics g) {

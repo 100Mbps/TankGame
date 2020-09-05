@@ -1,16 +1,14 @@
 package com.dgyt.tank;
 
 import java.awt.*;
-import java.util.Dictionary;
 import java.util.Random;
 
 public class Tank {
 
     private static final int SPEED = 5;
-    private int x = 80;
-    private int y = 80;
+    int x , y;
     private boolean moving = true;
-    private final TankFrame tf;
+    final TankFrame tf;
     Rectangle rect;
     Group group;
     private final Random random = new Random();
@@ -122,7 +120,7 @@ public class Tank {
 
 
     private void autoFire(){
-        if(random.nextInt(10) >8) this.fire();
+        if(random.nextInt(10) >8) this.fire(DefaultFireStrategy.getInstance());
     }
 
     public boolean isMoving() {
@@ -133,10 +131,8 @@ public class Tank {
         this.moving = moving;
     }
 
-    public void fire() {
-      int bx = x + (WIDTH - Bullet.WIDTH)/2;
-      int by = y + (HEIGHT - Bullet.HEIGHT)/2;
-      tf.bulletList.add(new Bullet(bx,by,this.direction,this.group,this.tf));
+    public void fire(FireStrategy s) {
+          s.fire(this);
     }
 
     public int getX() {
