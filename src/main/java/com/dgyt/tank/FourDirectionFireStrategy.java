@@ -9,10 +9,6 @@ public class FourDirectionFireStrategy implements FireStrategy {
         return FourDirectionFireStrategy.FireStrategyHolder.instance;
     }
 
-    private static class FireStrategyHolder {
-        static final FourDirectionFireStrategy instance = new FourDirectionFireStrategy();
-    }
-
     @Override
     public void fire(Tank t) {
         int bx = t.x + (Tank.WIDTH - Bullet.WIDTH) / 2;
@@ -20,6 +16,10 @@ public class FourDirectionFireStrategy implements FireStrategy {
         for (Direction direction : Direction.values()) {
             new Bullet(bx, by, direction, t.group, t.tf);
         }
+    }
+
+    private static class FireStrategyHolder {
+        static final FourDirectionFireStrategy instance = new FourDirectionFireStrategy();
     }
 
 }

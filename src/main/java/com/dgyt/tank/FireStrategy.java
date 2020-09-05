@@ -2,6 +2,6 @@ package com.dgyt.tank;
 
 public interface FireStrategy {
 
-     void fire(Tank t);
+    void fire(Tank t);
 
 }

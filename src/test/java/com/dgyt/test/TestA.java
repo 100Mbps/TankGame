@@ -12,8 +12,8 @@ public class TestA {
 
     @Test
     public void test() throws IOException {
-      BufferedImage bi = ImageIO.read(Objects.requireNonNull(TestA.class.getClassLoader().getResourceAsStream("images/e1.gif")));
-      Assertions.assertNotNull(bi);
+        BufferedImage bi = ImageIO.read(Objects.requireNonNull(TestA.class.getClassLoader().getResourceAsStream("images/e1.gif")));
+        Assertions.assertNotNull(bi);
     }
 
 

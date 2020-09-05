@@ -5,7 +5,6 @@ import java.util.Properties;
 
 public class PropertyManager {
     private static final Properties props = new Properties();
-    private PropertyManager(){}
 
     static {
         try {
@@ -13,6 +12,9 @@ public class PropertyManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private PropertyManager() {
     }
 
     public static Object get(String key) {
