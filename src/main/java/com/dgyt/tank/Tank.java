@@ -1,9 +1,11 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.factory.BaseTank;
+
 import java.awt.*;
 import java.util.Random;
 
-public class Tank {
+public class Tank extends BaseTank {
 
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
@@ -14,8 +16,8 @@ public class Tank {
     Rectangle rect;
     Group group;
     boolean alive = true;
-    Direction direction;
-    private boolean moving = true;
+    //Direction direction;
+    //private boolean moving = true;
     private int time;
 
     public Tank(int x, int y, Direction direction, Group group, TankFrame tf) {
@@ -27,10 +29,14 @@ public class Tank {
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
     }
 
+    @Override
     public void paint(Graphics g) {
         if (!alive) {
             tf.tankList.remove(this);
             return;
+        }
+        if (this.group == Group.GOOD) {
+            System.out.println(this.direction);
         }
         switch (direction) {
             case LEFT:
@@ -50,7 +56,7 @@ public class Tank {
     }
 
     private void move() {
-        if (moving) {
+        if (super.isMoving()) {
             switch (direction) {
                 case LEFT:
                     if (x > 0) {
@@ -122,14 +128,6 @@ public class Tank {
 
     private void autoFire() {
         if (random.nextInt(10) > 8) this.fire(DefaultFireStrategy.getInstance());
-    }
-
-    public boolean isMoving() {
-        return moving;
-    }
-
-    public void setMoving(boolean moving) {
-        this.moving = moving;
     }
 
     public void fire(FireStrategy s) {

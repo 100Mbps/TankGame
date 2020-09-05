@@ -1,8 +1,10 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.factory.BaseBullet;
+
 import java.awt.*;
 
-public class Bullet {
+public class Bullet extends BaseBullet {
 
     public static final int WIDTH = ResourceManager.bulletL.getWidth();
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
@@ -25,6 +27,7 @@ public class Bullet {
         this.tankFrame.bulletList.add(this);
     }
 
+    @Override
     public void paint(Graphics g) {
         move();
         if (!alive) {

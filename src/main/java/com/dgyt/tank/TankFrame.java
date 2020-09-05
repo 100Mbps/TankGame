@@ -1,5 +1,9 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.factory.AbstractGameFactory;
+import com.dgyt.tank.factory.BaseTank;
+import com.dgyt.tank.factory.DefaultGameFactory;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -9,11 +13,13 @@ import java.util.ArrayList;
 
 
 public class TankFrame extends Frame {
+
+    final static AbstractGameFactory defaultFactory = new DefaultGameFactory();
     final static int GAME_WIDTH = 1200, GAME_HEIGHT = 600;
     final java.util.List<Bullet> bulletList = new ArrayList<>();
     final java.util.List<Tank> tankList = new ArrayList<>();
     final java.util.List<Explode> explode = new ArrayList<>();
-    private final Tank myTank = new Tank(80, 120, Direction.UP, Group.GOOD, this);
+    private final BaseTank goodTank = defaultFactory.createTank(80, 120, Direction.UP, Group.GOOD, this);
     Image offScreenImage = null;
 
     public TankFrame(String name) {
@@ -39,7 +45,7 @@ public class TankFrame extends Frame {
         g.drawString(String.format("子弹数量:%d", bulletList.size()), 60, 60);
         g.drawString(String.format("敌人数量:%d", tankList.size()), 60, 40);
         g.setColor(originalColor);
-        myTank.paint(g);
+        goodTank.paint(g);
         for (int i = 0; i < bulletList.size(); i++) {
             bulletList.get(i).paint(g);
         }
@@ -125,7 +131,7 @@ public class TankFrame extends Frame {
                     bD = false;
                     break;
                 case KeyEvent.VK_CONTROL:
-                    myTank.fire(FourDirectionFireStrategy.getInstance());
+                    goodTank.fire(FourDirectionFireStrategy.getInstance());
                     break;
                 default:
                     break;
@@ -135,13 +141,13 @@ public class TankFrame extends Frame {
 
         private void setMainDirection() {
             if (!bL && !bR && !bU && !bD) {
-                myTank.setMoving(false);
+                goodTank.setMoving(false);
             } else {
-                if (bL) myTank.direction = Direction.LEFT;
-                if (bR) myTank.direction = Direction.RIGHT;
-                if (bU) myTank.direction = Direction.UP;
-                if (bD) myTank.direction = Direction.DOWN;
-                myTank.setMoving(true);
+                if (bL) goodTank.direction = Direction.LEFT;
+                if (bR) goodTank.direction = Direction.RIGHT;
+                if (bU) goodTank.direction = Direction.UP;
+                if (bD) goodTank.direction = Direction.DOWN;
+                goodTank.setMoving(true);
             }
         }
     }

@@ -1,8 +1,10 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.factory.BaseExplode;
+
 import java.awt.*;
 
-public class Explode {
+public class Explode extends BaseExplode {
 
     public final static int WIDTH = ResourceManager.explodes[0].getWidth();
     public final static int Height = ResourceManager.explodes[0].getHeight();
@@ -18,6 +20,7 @@ public class Explode {
         this.tankFrame = tankFrame;
     }
 
+    @Override
     public void paint(Graphics g) {
         if (step++ < ResourceManager.explodes.length - 1) {
             g.drawImage(ResourceManager.explodes[step], x, y, null);
