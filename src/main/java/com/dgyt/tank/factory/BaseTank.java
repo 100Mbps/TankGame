@@ -1,7 +1,7 @@
 package com.dgyt.tank.factory;
 
-import com.dgyt.tank.Direction;
-import com.dgyt.tank.FireStrategy;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.strategy.FireStrategy;
 
 import java.awt.*;
 

@@ -1,6 +1,10 @@
 package com.dgyt.tank.factory;
 
-import com.dgyt.tank.*;
+import com.dgyt.tank.pojo.Bullet;
+import com.dgyt.tank.pojo.Tank;
+import com.dgyt.tank.pojo.TankFrame;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
 
 public class DefaultGameFactory extends AbstractGameFactory {
     @Override

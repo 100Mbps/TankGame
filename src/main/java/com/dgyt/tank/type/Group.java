@@ -1,4 +1,4 @@
-package com.dgyt.tank;
+package com.dgyt.tank.type;
 
 public enum Group {
     GOOD, BAD

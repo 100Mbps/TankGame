@@ -1,5 +1,6 @@
-package com.dgyt.tank;
+package com.dgyt.tank.pojo;
 
+import com.dgyt.tank.ResourceManager;
 import com.dgyt.tank.factory.BaseExplode;
 
 import java.awt.*;

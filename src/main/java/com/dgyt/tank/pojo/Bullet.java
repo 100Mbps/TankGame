@@ -1,9 +1,12 @@
-package com.dgyt.tank;
+package com.dgyt.tank.pojo;
 
+import com.dgyt.tank.ResourceManager;
 import com.dgyt.tank.factory.BaseBullet;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
 
 import java.awt.*;
-@Deprecated
+
 public class Bullet extends BaseBullet {
 
     public static final int WIDTH = ResourceManager.bulletL.getWidth();

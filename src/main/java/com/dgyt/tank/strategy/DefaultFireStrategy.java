@@ -1,4 +1,7 @@
-package com.dgyt.tank;
+package com.dgyt.tank.strategy;
+
+import com.dgyt.tank.pojo.Bullet;
+import com.dgyt.tank.pojo.Tank;
 
 /**
  *

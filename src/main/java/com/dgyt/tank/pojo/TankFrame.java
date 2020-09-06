@@ -1,8 +1,14 @@
-package com.dgyt.tank;
+package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.factory.AbstractGameFactory;
 import com.dgyt.tank.factory.BaseTank;
 import com.dgyt.tank.factory.DefaultGameFactory;
+import com.dgyt.tank.pojo.Bullet;
+import com.dgyt.tank.pojo.Explode;
+import com.dgyt.tank.pojo.Tank;
+import com.dgyt.tank.strategy.FourDirectionFireStrategy;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -17,7 +23,7 @@ public class TankFrame extends Frame {
     final static AbstractGameFactory defaultFactory = new DefaultGameFactory();
     final static int GAME_WIDTH = 1200, GAME_HEIGHT = 600;
     final java.util.List<Bullet> bulletList = new ArrayList<>();
-    final java.util.List<Tank> tankList = new ArrayList<>();
+    public final java.util.List<Tank> tankList = new ArrayList<>();
     final java.util.List<Explode> explode = new ArrayList<>();
     private final BaseTank goodTank = defaultFactory.createTank(80, 120, Direction.UP, Group.GOOD, this);
     Image offScreenImage = null;

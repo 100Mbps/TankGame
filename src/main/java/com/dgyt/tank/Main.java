@@ -1,5 +1,10 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.pojo.Tank;
+import com.dgyt.tank.pojo.TankFrame;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
+
 import java.util.concurrent.TimeUnit;
 
 //Design Pattern Branch

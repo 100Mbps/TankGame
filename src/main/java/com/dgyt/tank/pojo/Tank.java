@@ -1,6 +1,11 @@
-package com.dgyt.tank;
+package com.dgyt.tank.pojo;
 
+import com.dgyt.tank.ResourceManager;
 import com.dgyt.tank.factory.BaseTank;
+import com.dgyt.tank.strategy.DefaultFireStrategy;
+import com.dgyt.tank.strategy.FireStrategy;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
 
 import java.awt.*;
 import java.util.Random;
@@ -10,11 +15,11 @@ public class Tank extends BaseTank {
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
     private static final int SPEED = 5;
-    final TankFrame tf;
+    public final TankFrame tf;
     private final Random random = new Random();
-    int x, y;
-    Rectangle rect;
-    Group group;
+    public int x, y;
+    public Rectangle rect;
+    public Group group;
     boolean alive = true;
     //Direction direction;
     //private boolean moving = true;

@@ -1,9 +1,20 @@
 package com.dgyt.tank.factory;
 
-import com.dgyt.tank.Direction;
-import com.dgyt.tank.Group;
-import com.dgyt.tank.TankFrame;
+import com.dgyt.tank.type.Direction;
+import com.dgyt.tank.type.Group;
+import com.dgyt.tank.pojo.TankFrame;
 
+/**
+ * 如何决定使用抽象类还是接口
+ *
+ * 一、第一种方式
+ *  1.名词抽象类 food
+ *  2.形容词接口 movable
+ * 二、第二种方式
+ *  1.现实中存在的事物抽象类 面包、牛奶
+ *  2.拥有某种功能或者行为  如移动、跳
+ *
+ */
 public abstract class AbstractGameFactory {
     /**
      * create bullet
@@ -21,7 +32,7 @@ public abstract class AbstractGameFactory {
      * @param x         location
      * @param y         location
      * @param direction direction
-     * @param group     gourp
+     * @param group     group
      * @param tf        tf
      * @return Tank
      */
