@@ -16,12 +16,7 @@ public class Tank extends BaseTank {
     private static final int SPEED = 5;
     public final TankFrame tf;
     private final Random random = new Random();
-    public int x, y;
-    public Rectangle rect;
-    public Group group;
     boolean alive = true;
-    //Direction direction;
-    //private boolean moving = true;
     private int time;
 
     public Tank(int x, int y, Direction direction, Group group, TankFrame tf) {

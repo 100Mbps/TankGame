@@ -14,7 +14,7 @@ public class Main {
         int initTankCount = Integer.parseInt(PropertyManager.get("initTankCount").toString());
         final TankFrame frame = new TankFrame("my tank game");
         for (int i = 0; i < initTankCount; i++) {
-            frame.tankList.add(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD, frame));
+            frame.tankList.add(TankFrame.GAME_FACTORY.createTank(50 * i + 50, 80, Direction.DOWN, Group.BAD, frame));
         }
         new Thread(() -> {
             while (true) {

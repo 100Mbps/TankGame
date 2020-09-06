@@ -10,7 +10,7 @@ public class Bullet extends BaseBullet {
 
     public static final int WIDTH = ResourceManager.bulletL.getWidth();
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
-    private static final int SPEED = 10;
+    //static final int SPEED = 10;
     private final TankFrame tankFrame;
     private final Group group;
     Rectangle rect;
@@ -51,8 +51,7 @@ public class Bullet extends BaseBullet {
                 break;
         }
     }
-
-    private void move() {
+    public void move() {
         switch (direction) {
             case LEFT:
                 x -= SPEED;
@@ -76,13 +75,13 @@ public class Bullet extends BaseBullet {
             this.alive = false;
         }
     }
-
-    public void collide(Tank tank) {
+    @Override
+    public void collide(BaseTank tank) {
         if (this.group == tank.group) return;
         this.rect.x = this.x;
         this.rect.y = this.y;
-        tank.rect.x = tank.getX();
-        tank.rect.y = tank.getY();
+        tank.rect.x = tank.x;
+        tank.rect.y = tank.y;
         if (this.rect.intersects(tank.rect)) {
             tank.die();
             this.die();

@@ -2,6 +2,7 @@ package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.factory.AbstractGameFactory;
 import com.dgyt.tank.factory.DefaultGameFactory;
+import com.dgyt.tank.strategy.ColorBulletStrategy;
 import com.dgyt.tank.strategy.FourDirectionFireStrategy;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
@@ -16,12 +17,12 @@ import java.util.ArrayList;
 
 public class TankFrame extends Frame {
 
-    final static AbstractGameFactory defaultFactory = new DefaultGameFactory();
+    public final static AbstractGameFactory GAME_FACTORY = new DefaultGameFactory();
     final static int GAME_WIDTH = 1200, GAME_HEIGHT = 600;
-    final java.util.List<Bullet> bulletList = new ArrayList<>();
-    public final java.util.List<Tank> tankList = new ArrayList<>();
-    final java.util.List<Explode> explode = new ArrayList<>();
-    private final BaseTank goodTank = defaultFactory.createTank(80, 120, Direction.UP, Group.GOOD, this);
+    final java.util.List<BaseBullet> bulletList = new ArrayList<>();
+    public final java.util.List<BaseTank> tankList = new ArrayList<>();
+    final java.util.List<BaseExplode> explode = new ArrayList<>();
+    private final BaseTank goodTank = GAME_FACTORY.createTank(80, 120, Direction.UP, Group.GOOD, this);
     Image offScreenImage = null;
 
     public TankFrame(String name) {
@@ -133,7 +134,7 @@ public class TankFrame extends Frame {
                     bD = false;
                     break;
                 case KeyEvent.VK_CONTROL:
-                    goodTank.fire(FourDirectionFireStrategy.getInstance());
+                    goodTank.fire(ColorBulletStrategy.getInstance());
                     break;
                 default:
                     break;

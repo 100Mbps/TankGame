@@ -17,7 +17,7 @@ public class TestA {
     }
 
     /**
-     * 测试继承
+     * 测试继承,属性值
      */
     @Test
     public  void testExtends(){
