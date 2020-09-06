@@ -16,5 +16,18 @@ public class TestA {
         Assertions.assertNotNull(bi);
     }
 
+    /**
+     * 测试继承
+     */
+    @Test
+    public  void testExtends(){
+        A a = new B();
+        a.a=10;
+        B b =(B) a;
+        Assertions.assertEquals(b.a, 0);
+        Assertions.assertEquals(a.a, 10);
+    }
+
+
 
 }
