@@ -3,7 +3,7 @@ package com.dgyt.tank;
 import com.dgyt.tank.factory.BaseBullet;
 
 import java.awt.*;
-
+@Deprecated
 public class Bullet extends BaseBullet {
 
     public static final int WIDTH = ResourceManager.bulletL.getWidth();

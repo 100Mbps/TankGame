@@ -35,9 +35,6 @@ public class Tank extends BaseTank {
             tf.tankList.remove(this);
             return;
         }
-        if (this.group == Group.GOOD) {
-            System.out.println(this.direction);
-        }
         switch (direction) {
             case LEFT:
                 g.drawImage(ResourceManager.tankL, x, y, null);
