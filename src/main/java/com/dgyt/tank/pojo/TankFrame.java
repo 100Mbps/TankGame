@@ -1,11 +1,7 @@
 package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.factory.AbstractGameFactory;
-import com.dgyt.tank.factory.BaseTank;
 import com.dgyt.tank.factory.DefaultGameFactory;
-import com.dgyt.tank.pojo.Bullet;
-import com.dgyt.tank.pojo.Explode;
-import com.dgyt.tank.pojo.Tank;
 import com.dgyt.tank.strategy.FourDirectionFireStrategy;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;

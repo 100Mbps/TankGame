@@ -1,4 +1,4 @@
-package com.dgyt.tank.factory;
+package com.dgyt.tank.pojo;
 
 import java.awt.*;
 

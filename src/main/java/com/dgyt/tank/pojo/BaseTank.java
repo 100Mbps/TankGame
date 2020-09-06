@@ -1,4 +1,4 @@
-package com.dgyt.tank.factory;
+package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.strategy.FireStrategy;

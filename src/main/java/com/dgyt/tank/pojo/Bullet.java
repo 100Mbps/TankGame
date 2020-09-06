@@ -1,7 +1,6 @@
 package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.ResourceManager;
-import com.dgyt.tank.factory.BaseBullet;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 

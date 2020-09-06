@@ -1,5 +1,8 @@
 package com.dgyt.tank.factory;
 
+import com.dgyt.tank.pojo.BaseBullet;
+import com.dgyt.tank.pojo.BaseExplode;
+import com.dgyt.tank.pojo.BaseTank;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 import com.dgyt.tank.pojo.TankFrame;

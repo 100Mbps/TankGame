@@ -1,7 +1,6 @@
 package com.dgyt.tank.pojo;
 
 import com.dgyt.tank.ResourceManager;
-import com.dgyt.tank.factory.BaseTank;
 import com.dgyt.tank.strategy.DefaultFireStrategy;
 import com.dgyt.tank.strategy.FireStrategy;
 import com.dgyt.tank.type.Direction;
