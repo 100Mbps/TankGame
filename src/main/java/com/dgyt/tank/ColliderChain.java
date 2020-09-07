@@ -7,7 +7,7 @@ import java.util.List;
  * @author hanrongjie
  * @date 2020/9/7 下午11:10
  */
-public class ColliderChain {
+public class ColliderChain implements Collider{
 
     private final List<Collider> chain = new LinkedList<>();
 
@@ -15,7 +15,8 @@ public class ColliderChain {
         chain.add(new TankCollider());
         chain.add(new BulletTankCollider());
     }
-    public void collider(GameObject o1,GameObject o2){
+    @Override
+    public void collide(GameObject o1,GameObject o2){
         for(Collider collider :chain){
             collider.collide(o1,o2);
         }

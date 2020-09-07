@@ -51,7 +51,7 @@ public class GameModel {
             for(int j=i+1;j<gos.size();j++){
                 GameObject o1 = gos.get(i);
                 GameObject o2 = gos.get(j);
-                chain.collider(o1,o2);
+                chain.collide(o1,o2);
             }
         }
     }
