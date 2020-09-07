@@ -94,9 +94,9 @@ public class Tank extends GameObject{
     }
 
     /**
-     * 碰壁转向
+     * 随机向某个方向转向
      */
-    private void autoChangeDirection() {
+    public void autoChangeDirection() {
 
         switch (this.direction) {
             case LEFT:
@@ -163,7 +163,11 @@ public class Tank extends GameObject{
         gm.add(new Explode(eX, eY, true, this.gm));
     }
 
-    private void randomDirection(Direction original) {
+    /**
+     * 改变方向
+     * @param original 原始方向
+     */
+    public void randomDirection(Direction original) {
         int nextDirection = random.nextInt(4);
         while (this.direction == original) {
             this.direction = Direction.values()[nextDirection];

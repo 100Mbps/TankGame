@@ -7,5 +7,5 @@ package com.dgyt.tank;
  */
 public interface Collider {
 
-    void collide(GameObject t1,GameObject t2);
+    void collide(GameObject o1,GameObject o2);
 }
