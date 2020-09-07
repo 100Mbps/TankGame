@@ -2,12 +2,11 @@ package com.dgyt.tank;
 
 import java.awt.*;
 
-public class Explode {
+public class Explode extends GameObject{
 
     public final static int WIDTH = ResourceManager.explodes[0].getWidth();
     public final static int Height = ResourceManager.explodes[0].getHeight();
     final private GameModel gm;
-    int x, y;
     boolean painting;
     private int step = 0;
 
@@ -17,12 +16,12 @@ public class Explode {
         this.painting = painting;
         this.gm = gm;
     }
-
+    @Override
     public void paint(Graphics g) {
         if (step++ < ResourceManager.explodes.length - 1) {
             g.drawImage(ResourceManager.explodes[step], x, y, null);
         } else {
-            this.gm.explode.remove(this);
+            this.gm.remove(this);
         }
     }
 

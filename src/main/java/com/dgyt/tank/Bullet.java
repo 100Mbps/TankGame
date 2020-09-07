@@ -2,7 +2,7 @@ package com.dgyt.tank;
 
 import java.awt.*;
 
-public class Bullet {
+public class Bullet extends GameObject{
 
     public static final int WIDTH = ResourceManager.bulletL.getWidth();
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
@@ -11,8 +11,6 @@ public class Bullet {
     private final Group group;
     Rectangle rect;
     Direction direction;
-    private int x;
-    private int y;
     private boolean alive = true;
 
     public Bullet(int x, int y, Direction direction, Group group, GameModel gm) {
@@ -22,13 +20,13 @@ public class Bullet {
         this.gm = gm;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
-        this.gm.bulletList.add(this);
+        this.gm.add(this);
     }
-
+    @Override
     public void paint(Graphics g) {
         move();
         if (!alive) {
-            gm.bulletList.remove(this);
+            gm.remove(this);
             return;
         }
         switch (direction) {

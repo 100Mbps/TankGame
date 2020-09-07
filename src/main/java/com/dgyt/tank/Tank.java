@@ -3,14 +3,13 @@ package com.dgyt.tank;
 import java.awt.*;
 import java.util.Random;
 
-public class Tank {
+public class Tank extends GameObject{
 
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
     private static final int SPEED = 5;
     final GameModel gm;
     private final Random random = new Random();
-    int x, y;
     Rectangle rect;
     Group group;
     boolean alive = true;
@@ -27,9 +26,10 @@ public class Tank {
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
     }
 
+    @Override
     public void paint(Graphics g) {
         if (!alive) {
-            gm.tankList.remove(this);
+            gm.remove(this);
             return;
         }
         switch (direction) {
@@ -157,7 +157,7 @@ public class Tank {
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
         int eY = y + (Tank.HEIGHT - Explode.Height) / 2;
-        gm.explode.add(new Explode(eX, eY, true, this.gm));
+        gm.add(new Explode(eX, eY, true, this.gm));
     }
 
     private void randomDirection(Direction original) {
