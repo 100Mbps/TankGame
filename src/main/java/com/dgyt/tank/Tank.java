@@ -1,5 +1,7 @@
 package com.dgyt.tank;
 
+import com.dgyt.tank.util.Utils;
+
 import java.awt.*;
 import java.util.Random;
 
@@ -88,7 +90,7 @@ public class Tank extends GameObject{
             this.autoChangeDirection();
         }
         if (time * SPEED >= 200) {
-            randomDirection(this.direction);
+            randomDirection();
             time = 0;
         }
     }
@@ -101,22 +103,22 @@ public class Tank extends GameObject{
         switch (this.direction) {
             case LEFT:
                 if (x <= 0) {
-                    this.randomDirection(Direction.LEFT);
+                    this.randomDirection();
                 }
                 break;
             case RIGHT:
                 if (x + Tank.WIDTH >= TankFrame.GAME_WIDTH) {
-                    this.randomDirection(Direction.RIGHT);
+                    this.randomDirection();
                 }
                 break;
             case UP:
                 if (y <= 0) {
-                    this.randomDirection(Direction.UP);
+                    this.randomDirection();
                 }
                 break;
             case DOWN:
                 if (y + Tank.HEIGHT >= TankFrame.GAME_HEIGHT) {
-                    this.randomDirection(Direction.DOWN);
+                    this.randomDirection();
                 }
                 break;
         }
@@ -138,24 +140,6 @@ public class Tank extends GameObject{
     public void fire(FireStrategy s) {
         s.fire(this);
     }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-
     public void die() {
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
@@ -165,13 +149,8 @@ public class Tank extends GameObject{
 
     /**
      * 改变方向
-     * @param original 原始方向
      */
-    public void randomDirection(Direction original) {
-        int nextDirection = random.nextInt(4);
-        while (this.direction == original) {
-            this.direction = Direction.values()[nextDirection];
-            nextDirection = random.nextInt(4);
-        }
+    public void randomDirection() {
+       this.direction =  Utils.randowmDirection(this.direction);
     }
 }
