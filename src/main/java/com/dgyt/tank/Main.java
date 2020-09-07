@@ -4,8 +4,6 @@ import com.dgyt.tank.pojo.TankFrame;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
