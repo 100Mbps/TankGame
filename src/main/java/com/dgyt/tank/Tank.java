@@ -69,6 +69,9 @@ public class Tank extends GameObject{
             }
 
         }
+        //检测碰撞坦克随坦克移动
+        rect.x = x;
+        rect.y = y;
         if (this.group == Group.BAD) {
             autoFire();
             autoChangeDirectionV2();

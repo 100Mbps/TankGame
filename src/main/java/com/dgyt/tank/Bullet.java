@@ -8,7 +8,7 @@ public class Bullet extends GameObject{
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private static final int SPEED = 10;
     private final GameModel gm;
-    private final Group group;
+    public final Group group;
     Rectangle rect;
     Direction direction;
     private boolean alive = true;
@@ -60,6 +60,9 @@ public class Bullet extends GameObject{
                 y += SPEED;
                 break;
         }
+        //碰撞随子弹移动
+        rect.x = x;
+        rect.y = y;
         this.setAlive();
     }
 
@@ -71,18 +74,10 @@ public class Bullet extends GameObject{
     }
 
     public void collide(Tank tank) {
-        if (this.group == tank.group) return;
-        this.rect.x = this.x;
-        this.rect.y = this.y;
-        tank.rect.x = tank.getX();
-        tank.rect.y = tank.getY();
-        if (this.rect.intersects(tank.rect)) {
-            tank.die();
-            this.die();
-        }
+
     }
 
-    private void die() {
+    public void die() {
         this.alive = false;
     }
 }

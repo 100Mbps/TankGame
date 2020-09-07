@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class GameModel {
     final java.util.List<GameObject> gos = new ArrayList<>();
-
+    Collider collider = new BulletTankCollider();
     public final Tank mainTank ;
 
 
@@ -44,6 +44,13 @@ public class GameModel {
         mainTank.paint(g);
         for (int i = 0; i < gos.size(); i++) {
             gos.get(i).paint(g);
+        }
+        for(int i=0;i<gos.size()-1;i++){
+            for(int j=i+1;j<gos.size();j++){
+                GameObject o1 = gos.get(i);
+                GameObject o2 = gos.get(j);
+                collider.collide(o1,o2);
+            }
         }
     }
 }
