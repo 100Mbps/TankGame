@@ -7,7 +7,7 @@ public class Bullet {
     public static final int WIDTH = ResourceManager.bulletL.getWidth();
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private static final int SPEED = 10;
-    private final TankFrame tankFrame;
+    private final GameModel gm;
     private final Group group;
     Rectangle rect;
     Direction direction;
@@ -15,20 +15,20 @@ public class Bullet {
     private int y;
     private boolean alive = true;
 
-    public Bullet(int x, int y, Direction direction, Group group, TankFrame tankFrame) {
+    public Bullet(int x, int y, Direction direction, Group group, GameModel gm) {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.tankFrame = tankFrame;
+        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
-        this.tankFrame.bulletList.add(this);
+        this.gm.bulletList.add(this);
     }
 
     public void paint(Graphics g) {
         move();
         if (!alive) {
-            tankFrame.bulletList.remove(this);
+            gm.bulletList.remove(this);
             return;
         }
         switch (direction) {

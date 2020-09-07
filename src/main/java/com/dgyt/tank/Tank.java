@@ -8,7 +8,7 @@ public class Tank {
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
     private static final int SPEED = 5;
-    final TankFrame tf;
+    final GameModel gm;
     private final Random random = new Random();
     int x, y;
     Rectangle rect;
@@ -18,18 +18,18 @@ public class Tank {
     private boolean moving = true;
     private int time;
 
-    public Tank(int x, int y, Direction direction, Group group, TankFrame tf) {
+    public Tank(int x, int y, Direction direction, Group group, GameModel gm) {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.tf = tf;
+        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
     }
 
     public void paint(Graphics g) {
         if (!alive) {
-            tf.tankList.remove(this);
+            gm.tankList.remove(this);
             return;
         }
         switch (direction) {
@@ -157,7 +157,7 @@ public class Tank {
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
         int eY = y + (Tank.HEIGHT - Explode.Height) / 2;
-        tf.explode.add(new Explode(eX, eY, true, this.tf));
+        gm.explode.add(new Explode(eX, eY, true, this.gm));
     }
 
     private void randomDirection(Direction original) {

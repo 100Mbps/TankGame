@@ -5,15 +5,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
 
 
 public class TankFrame extends Frame {
     final static int GAME_WIDTH = 1200, GAME_HEIGHT = 600;
-    final java.util.List<Bullet> bulletList = new ArrayList<>();
-    final java.util.List<Tank> tankList = new ArrayList<>();
-    final java.util.List<Explode> explode = new ArrayList<>();
-    private final Tank myTank = new Tank(80, 120, Direction.UP, Group.GOOD, this);
+    final GameModel gm = new GameModel();
     Image offScreenImage = null;
 
     public TankFrame(String name) {
@@ -34,26 +30,7 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        Color originalColor = g.getColor();
-        g.setColor(Color.YELLOW);
-        g.drawString(String.format("子弹数量:%d", bulletList.size()), 60, 60);
-        g.drawString(String.format("敌人数量:%d", tankList.size()), 60, 40);
-        g.setColor(originalColor);
-        myTank.paint(g);
-        for (int i = 0; i < bulletList.size(); i++) {
-            bulletList.get(i).paint(g);
-        }
-        for (int i = 0; i < tankList.size(); i++) {
-            tankList.get(i).paint(g);
-        }
-        for (int i = 0; i < bulletList.size(); i++) {
-            for (int j = 0; j < tankList.size(); j++) {
-                bulletList.get(i).collide(tankList.get(j));
-            }
-        }
-        for (int i = 0; i < explode.size(); i++) {
-            explode.get(i).paint(g);
-        }
+        gm.paint(g);
     }
 
     // 造成原因为，屏幕的刷新频率高于画的频率，
@@ -110,6 +87,7 @@ public class TankFrame extends Frame {
         }
 
         public void keyReleased(KeyEvent e) {
+            Tank mainTank = gm.mainTank;
             int keyCode = e.getKeyCode();
             switch (keyCode) {
                 case KeyEvent.VK_LEFT:
@@ -125,7 +103,7 @@ public class TankFrame extends Frame {
                     bD = false;
                     break;
                 case KeyEvent.VK_CONTROL:
-                    myTank.fire(FourDirectionFireStrategy.getInstance());
+                    mainTank.fire(FourDirectionFireStrategy.getInstance());
                     break;
                 default:
                     break;
@@ -134,14 +112,15 @@ public class TankFrame extends Frame {
         }
 
         private void setMainDirection() {
+            Tank mianTank = gm.mainTank;
             if (!bL && !bR && !bU && !bD) {
-                myTank.setMoving(false);
+                mianTank.setMoving(false);
             } else {
-                if (bL) myTank.direction = Direction.LEFT;
-                if (bR) myTank.direction = Direction.RIGHT;
-                if (bU) myTank.direction = Direction.UP;
-                if (bD) myTank.direction = Direction.DOWN;
-                myTank.setMoving(true);
+                if (bL) mianTank.direction = Direction.LEFT;
+                if (bR) mianTank.direction = Direction.RIGHT;
+                if (bU) mianTank.direction = Direction.UP;
+                if (bD) mianTank.direction = Direction.DOWN;
+                mianTank.setMoving(true);
             }
         }
     }
