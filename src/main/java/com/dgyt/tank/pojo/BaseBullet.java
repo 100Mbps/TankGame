@@ -13,10 +13,10 @@ public abstract class BaseBullet {
     /**
      * 位置
      */
-    protected  int x,y;
+    protected int x, y;
 
     /**
-     *方向
+     * 方向
      */
     protected Direction direction;
     /**
@@ -30,13 +30,15 @@ public abstract class BaseBullet {
 
     /**
      * 绘制子弹
+     *
      * @param g 画笔
      */
     public abstract void paint(Graphics g);
 
     /**
      * 与tank碰撞后的行为
+     *
      * @param tank tank
      */
-    public abstract  void collide(BaseTank tank);
+    public abstract void collide(BaseTank tank);
 }

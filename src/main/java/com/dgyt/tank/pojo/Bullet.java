@@ -51,6 +51,7 @@ public class Bullet extends BaseBullet {
                 break;
         }
     }
+
     public void move() {
         switch (direction) {
             case LEFT:
@@ -75,6 +76,7 @@ public class Bullet extends BaseBullet {
             this.alive = false;
         }
     }
+
     @Override
     public void collide(BaseTank tank) {
         if (this.group == tank.group) return;

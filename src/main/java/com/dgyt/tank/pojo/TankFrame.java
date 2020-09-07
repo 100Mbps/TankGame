@@ -3,7 +3,6 @@ package com.dgyt.tank.pojo;
 import com.dgyt.tank.factory.AbstractGameFactory;
 import com.dgyt.tank.factory.DefaultGameFactory;
 import com.dgyt.tank.strategy.ColorBulletStrategy;
-import com.dgyt.tank.strategy.FourDirectionFireStrategy;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 

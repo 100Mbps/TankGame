@@ -1,7 +1,7 @@
 package com.dgyt.tank.pojo;
 
-import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.strategy.FireStrategy;
+import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 
 import java.awt.*;
@@ -17,7 +17,7 @@ public abstract class BaseTank {
      */
     public Group group;
 
-    public int x,y;
+    public int x, y;
 
     public Rectangle rect;
 
@@ -33,7 +33,7 @@ public abstract class BaseTank {
     /**
      *
      */
-    public abstract  void die();
+    public abstract void die();
 
     public boolean isMoving() {
         return moving;

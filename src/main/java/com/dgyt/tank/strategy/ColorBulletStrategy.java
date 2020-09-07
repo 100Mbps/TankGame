@@ -5,7 +5,7 @@ import com.dgyt.tank.pojo.ColorBullet;
 import com.dgyt.tank.pojo.Tank;
 import com.dgyt.tank.type.Direction;
 
-public class ColorBulletStrategy implements FireStrategy{
+public class ColorBulletStrategy implements FireStrategy {
 
 
     private static class FireStrategyHolder {

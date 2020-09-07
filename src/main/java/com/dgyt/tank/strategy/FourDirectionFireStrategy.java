@@ -1,8 +1,8 @@
 package com.dgyt.tank.strategy;
 
 import com.dgyt.tank.pojo.Bullet;
-import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.pojo.Tank;
+import com.dgyt.tank.type.Direction;
 
 public class FourDirectionFireStrategy implements FireStrategy {
 

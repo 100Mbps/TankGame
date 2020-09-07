@@ -5,13 +5,13 @@ import com.dgyt.tank.type.Group;
 
 import java.awt.*;
 
-public class ColorBullet extends BaseBullet{
+public class ColorBullet extends BaseBullet {
 
     private Rectangle rect;
 
-    private int width , height;
+    private int width, height;
 
-    private Color[] colors = new Color[]{Color.red,Color.green,Color.white,Color.cyan};
+    private Color[] colors = new Color[]{Color.red, Color.green, Color.white, Color.cyan};
 
     private int curColor;
 
@@ -21,7 +21,7 @@ public class ColorBullet extends BaseBullet{
         this.direction = direction;
         this.tankFrame = tankFrame;
         this.group = group;
-        this.height =10;
+        this.height = 10;
         this.width = 10;
         rect = new Rectangle(x, y, width, height);
         this.tankFrame.bulletList.add(this);
@@ -54,12 +54,13 @@ public class ColorBullet extends BaseBullet{
                 break;
         }
         Color originalColor = g.getColor();
-        if(curColor == colors.length) curColor=0;
+        if (curColor == colors.length) curColor = 0;
         g.setColor(colors[curColor++]);
-        g.fillOval(x,y,width,height);
+        g.fillOval(x, y, width, height);
         g.setColor(originalColor);
     }
-    private void die(){
+
+    private void die() {
         this.tankFrame.bulletList.remove(this);
     }
 

@@ -20,14 +20,13 @@ public class TestA {
      * 测试继承,属性值
      */
     @Test
-    public  void testExtends(){
+    public void testExtends() {
         A a = new B();
-        a.a=10;
-        B b =(B) a;
+        a.a = 10;
+        B b = (B) a;
         Assertions.assertEquals(b.a, 0);
         Assertions.assertEquals(a.a, 10);
     }
-
 
 
 }
