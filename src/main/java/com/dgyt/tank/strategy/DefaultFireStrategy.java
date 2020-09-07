@@ -4,7 +4,7 @@ import com.dgyt.tank.pojo.Bullet;
 import com.dgyt.tank.pojo.Tank;
 
 /**
- *
+ * @author hanrongjie
  */
 public class DefaultFireStrategy implements FireStrategy {
 
@@ -12,7 +12,7 @@ public class DefaultFireStrategy implements FireStrategy {
     }
 
     public static DefaultFireStrategy getInstance() {
-        return FireStrategyHolder.instance;
+        return FireStrategyHolder.INSTANCE;
     }
 
     @Override
@@ -23,6 +23,6 @@ public class DefaultFireStrategy implements FireStrategy {
     }
 
     private static class FireStrategyHolder {
-        static final DefaultFireStrategy instance = new DefaultFireStrategy();
+        static final DefaultFireStrategy INSTANCE = new DefaultFireStrategy();
     }
 }

@@ -5,11 +5,14 @@ import com.dgyt.tank.type.Group;
 
 import java.awt.*;
 
+/**
+ * @author hanrongjie
+ */
 public abstract class BaseBullet {
     /**
      * 子弹默认速度
      */
-    protected int SPEED = 10;
+    protected int speed = 10;
     /**
      * 位置
      */

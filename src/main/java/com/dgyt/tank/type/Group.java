@@ -1,5 +1,15 @@
 package com.dgyt.tank.type;
 
+/**
+ * @author hanrongjie
+ */
 public enum Group {
-    GOOD, BAD
+    /**
+     * 好
+     */
+    GOOD,
+    /**
+     * 坏
+     */
+    BAD
 }

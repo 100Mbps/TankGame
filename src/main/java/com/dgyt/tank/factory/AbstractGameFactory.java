@@ -16,6 +16,8 @@ import com.dgyt.tank.type.Group;
  * 二、第二种方式
  * 1.现实中存在的事物抽象类 面包、牛奶
  * 2.拥有某种功能或者行为  如移动、跳
+ *
+ * @author hanrongjie
  */
 public abstract class AbstractGameFactory {
     /**

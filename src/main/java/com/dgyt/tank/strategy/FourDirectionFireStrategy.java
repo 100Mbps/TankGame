@@ -4,13 +4,16 @@ import com.dgyt.tank.pojo.Bullet;
 import com.dgyt.tank.pojo.Tank;
 import com.dgyt.tank.type.Direction;
 
+/**
+ * @author hanrongjie
+ */
 public class FourDirectionFireStrategy implements FireStrategy {
 
     private FourDirectionFireStrategy() {
     }
 
     public static FourDirectionFireStrategy getInstance() {
-        return FourDirectionFireStrategy.FireStrategyHolder.instance;
+        return FourDirectionFireStrategy.FireStrategyHolder.INSTANCE;
     }
 
     @Override
@@ -23,7 +26,7 @@ public class FourDirectionFireStrategy implements FireStrategy {
     }
 
     private static class FireStrategyHolder {
-        static final FourDirectionFireStrategy instance = new FourDirectionFireStrategy();
+        static final FourDirectionFireStrategy INSTANCE = new FourDirectionFireStrategy();
     }
 
 }

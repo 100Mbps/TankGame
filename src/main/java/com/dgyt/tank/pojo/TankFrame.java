@@ -13,7 +13,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
-
+/**
+ * Tank Main Frame
+ *
+ * @author hanrongjie
+ */
 public class TankFrame extends Frame {
 
     public final static AbstractGameFactory GAME_FACTORY = new DefaultGameFactory();
@@ -64,8 +68,12 @@ public class TankFrame extends Frame {
         }
     }
 
-    // 造成原因为，屏幕的刷新频率高于画的频率，
-    //解决屏幕闪烁问题，首先将需要画的内容画到一张图里，待图完成后，刷到frame上。
+    /**
+     * 造成原因为，屏幕的刷新频率高于画的频率，
+     * 解决屏幕闪烁问题，首先将需要画的内容画到一张图里，待图完成后，刷到frame上。
+     * @param g 画笔
+     */
+
     @Override
     public void update(Graphics g) {
         if (offScreenImage == null) {
@@ -91,10 +99,12 @@ public class TankFrame extends Frame {
         //Right
         private boolean bR = false;
 
+        @Override
         public void keyTyped(KeyEvent e) {
 
         }
 
+        @Override
         public void keyPressed(KeyEvent e) {
             // 39 ->
             int keyCode = e.getKeyCode();
@@ -117,6 +127,7 @@ public class TankFrame extends Frame {
             setMainDirection();
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {
             int keyCode = e.getKeyCode();
             switch (keyCode) {
@@ -145,10 +156,18 @@ public class TankFrame extends Frame {
             if (!bL && !bR && !bU && !bD) {
                 goodTank.setMoving(false);
             } else {
-                if (bL) goodTank.direction = Direction.LEFT;
-                if (bR) goodTank.direction = Direction.RIGHT;
-                if (bU) goodTank.direction = Direction.UP;
-                if (bD) goodTank.direction = Direction.DOWN;
+                if (bL) {
+                    goodTank.direction = Direction.LEFT;
+                }
+                if (bR) {
+                    goodTank.direction = Direction.RIGHT;
+                }
+                if (bU) {
+                    goodTank.direction = Direction.UP;
+                }
+                if (bD) {
+                    goodTank.direction = Direction.DOWN;
+                }
                 goodTank.setMoving(true);
             }
         }

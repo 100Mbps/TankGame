@@ -4,9 +4,16 @@ import com.dgyt.tank.pojo.TankFrame;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-//Design Pattern Branch
+/**
+ *Design Pattern Branch
+ * @author hanrongjie
+ * @date 2020-09-07
+ */
+
 public class Main {
 
     public static void main(String[] args) {

@@ -5,15 +5,18 @@ import com.dgyt.tank.pojo.ColorBullet;
 import com.dgyt.tank.pojo.Tank;
 import com.dgyt.tank.type.Direction;
 
+/**
+ * @author hanrongjie
+ */
 public class ColorBulletStrategy implements FireStrategy {
 
 
     private static class FireStrategyHolder {
-        static final ColorBulletStrategy instance = new ColorBulletStrategy();
+        static final ColorBulletStrategy INSTANCE = new ColorBulletStrategy();
     }
 
     public static ColorBulletStrategy getInstance() {
-        return ColorBulletStrategy.FireStrategyHolder.instance;
+        return ColorBulletStrategy.FireStrategyHolder.INSTANCE;
     }
 
     @Override

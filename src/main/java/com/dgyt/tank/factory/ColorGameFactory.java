@@ -7,6 +7,9 @@ import com.dgyt.tank.pojo.TankFrame;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 
+/**
+ * @author hanrongjie
+ */
 public class ColorGameFactory extends AbstractGameFactory {
     /**
      * create bullet

@@ -41,20 +41,23 @@ public class ColorBullet extends BaseBullet {
         }
         switch (direction) {
             case LEFT:
-                x -= SPEED;
+                x -= speed;
                 break;
             case RIGHT:
-                x += SPEED;
+                x += speed;
                 break;
             case UP:
-                y -= SPEED;
+                y -= speed;
                 break;
             case DOWN:
-                y += SPEED;
+                y += speed;
                 break;
+            default:break;
         }
         Color originalColor = g.getColor();
-        if (curColor == colors.length) curColor = 0;
+        if (curColor == colors.length) {
+            curColor = 0;
+        }
         g.setColor(colors[curColor++]);
         g.fillOval(x, y, width, height);
         g.setColor(originalColor);
@@ -71,7 +74,9 @@ public class ColorBullet extends BaseBullet {
      */
     @Override
     public void collide(BaseTank tank) {
-        if (this.group == tank.group) return;
+        if (this.group == tank.group) {
+            return;
+        }
         this.rect.x = this.x;
         this.rect.y = this.y;
         tank.rect.x = tank.x;

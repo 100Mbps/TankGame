@@ -9,11 +9,18 @@ import com.dgyt.tank.type.Group;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * @author hanrongjie
+ */
 public class Tank extends BaseTank {
 
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
     private static final int SPEED = 5;
+    /**
+     * 默认行驶距离后，转换方向
+     */
+    private static final int DISTANCE = 200;
     public final TankFrame tf;
     private final Random random = new Random();
     boolean alive = true;
@@ -47,6 +54,7 @@ public class Tank extends BaseTank {
             case DOWN:
                 g.drawImage(ResourceManager.tankD, x, y, null);
                 break;
+            default:break;
         }
         move();
     }
@@ -68,6 +76,7 @@ public class Tank extends BaseTank {
                 case DOWN:
                     y += SPEED;
                     break;
+                default:break;
             }
 
         }
@@ -86,7 +95,7 @@ public class Tank extends BaseTank {
         if (x <= 0 || (x + Tank.WIDTH >= TankFrame.GAME_WIDTH) || (y <= 0) || y + Tank.HEIGHT >= TankFrame.GAME_HEIGHT) {
             this.autoChangeDirection();
         }
-        if (time * SPEED >= 200) {
+        if (time * SPEED >= DISTANCE) {
             randomDirection(this.direction);
             time = 0;
         }
@@ -118,14 +127,20 @@ public class Tank extends BaseTank {
                     this.randomDirection(Direction.DOWN);
                 }
                 break;
+            default: break;
         }
     }
 
 
     private void autoFire() {
-        if (random.nextInt(10) > 8) this.fire(DefaultFireStrategy.getInstance());
+        int bound =10;
+        int min =8;
+        if (random.nextInt(bound) > min){
+            this.fire(DefaultFireStrategy.getInstance());
+        }
     }
 
+    @Override
     public void fire(FireStrategy s) {
         s.fire(this);
     }
@@ -146,11 +161,11 @@ public class Tank extends BaseTank {
         this.y = y;
     }
 
-
+    @Override
     public void die() {
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
-        int eY = y + (Tank.HEIGHT - Explode.Height) / 2;
+        int eY = y + (Tank.HEIGHT - Explode.HEIGHT) / 2;
         tf.explode.add(new Explode(eX, eY, true, this.tf));
     }
 

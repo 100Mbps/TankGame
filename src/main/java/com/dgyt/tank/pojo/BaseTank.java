@@ -6,6 +6,9 @@ import com.dgyt.tank.type.Group;
 
 import java.awt.*;
 
+/**
+ * @author hanrongjie
+ */
 public abstract class BaseTank {
 
     /**
@@ -29,7 +32,6 @@ public abstract class BaseTank {
      * @param fs fire strategy
      */
     public abstract void fire(FireStrategy fs);
-
     /**
      *
      */

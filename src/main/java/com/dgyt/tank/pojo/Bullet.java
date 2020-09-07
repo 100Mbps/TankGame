@@ -49,23 +49,25 @@ public class Bullet extends BaseBullet {
             case DOWN:
                 g.drawImage(ResourceManager.bulletD, x, y, null);
                 break;
+            default:break;
         }
     }
 
     public void move() {
         switch (direction) {
             case LEFT:
-                x -= SPEED;
+                x -= speed;
                 break;
             case RIGHT:
-                x += SPEED;
+                x += speed;
                 break;
             case UP:
-                y -= SPEED;
+                y -= speed;
                 break;
             case DOWN:
-                y += SPEED;
+                y += speed;
                 break;
+            default:break;
         }
         this.setAlive();
     }
@@ -79,7 +81,9 @@ public class Bullet extends BaseBullet {
 
     @Override
     public void collide(BaseTank tank) {
-        if (this.group == tank.group) return;
+        if (this.group == tank.group) {
+            return;
+        }
         this.rect.x = this.x;
         this.rect.y = this.y;
         tank.rect.x = tank.x;

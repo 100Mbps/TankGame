@@ -4,6 +4,9 @@ import com.dgyt.tank.pojo.*;
 import com.dgyt.tank.type.Direction;
 import com.dgyt.tank.type.Group;
 
+/**
+ * @author hanrongjie
+ */
 public class DefaultGameFactory extends AbstractGameFactory {
     @Override
     public BaseBullet createBullet(int x, int y, Direction direction, Group group, TankFrame tankFrame) {

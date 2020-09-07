@@ -4,6 +4,9 @@ import com.dgyt.tank.strategy.FireStrategy;
 
 import java.awt.*;
 
+/**
+ * @author hanrongjie
+ */
 public class ColorTank extends BaseTank {
     /**
      * fire
