@@ -16,6 +16,7 @@ public class GameModel {
     Collider collider = new BulletTankCollider();
     Collider collider2 = new TankCollider();
     public final Tank mainTank ;
+    private final ColliderChain chain = new ColliderChain();
 
 
     public GameModel(){
@@ -50,8 +51,7 @@ public class GameModel {
             for(int j=i+1;j<gos.size();j++){
                 GameObject o1 = gos.get(i);
                 GameObject o2 = gos.get(j);
-                collider.collide(o1,o2);
-                collider2.collide(o1,o2);
+                chain.collider(o1,o2);
             }
         }
     }
