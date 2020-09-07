@@ -15,10 +15,11 @@ public class Main {
             while (true) {
                 try {
                     TimeUnit.MILLISECONDS.sleep(50);
+                    frame.repaint();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                frame.repaint();
+
             }
         }).start();
     }
