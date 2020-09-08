@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * @author hanrongjie
  * @date 2020/9/7 下午11:10
+ * chain 实现Collider的目的是可以无缝连接多个chain。
  */
 public class ColliderChain implements Collider{
 
