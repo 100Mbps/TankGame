@@ -14,7 +14,7 @@ public class FourDirectionFireStrategy implements FireStrategy {
         int bx = t.x + (Tank.WIDTH - Bullet.WIDTH) / 2;
         int by = t.y + (Tank.HEIGHT - Bullet.HEIGHT) / 2;
         for (Direction direction : Direction.values()) {
-            new Bullet(bx, by, direction, t.group);
+            GameModel.INSTANCE.add(new Bullet(bx, by, direction, t.group));
         }
     }
 

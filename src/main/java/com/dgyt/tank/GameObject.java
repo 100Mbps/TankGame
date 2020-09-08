@@ -13,6 +13,18 @@ public abstract class GameObject {
     int x,y;
 
     /**
+     *
+     * @return width
+     */
+    public abstract int getWidth();
+
+    /**
+     *
+     * @return height
+     */
+    public abstract int getHeight();
+
+    /**
      * 画
      * @param g 画笔
      */

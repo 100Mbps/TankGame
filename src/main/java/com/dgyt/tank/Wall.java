@@ -24,6 +24,22 @@ public class Wall  extends GameObject{
     }
 
     /**
+     * @return width
+     */
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * @return height
+     */
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    /**
      * 画
      *
      * @param g 画笔

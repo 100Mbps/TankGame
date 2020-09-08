@@ -5,7 +5,7 @@ import java.awt.*;
 public class Explode extends GameObject{
 
     public final static int WIDTH = ResourceManager.explodes[0].getWidth();
-    public final static int Height = ResourceManager.explodes[0].getHeight();
+    public final static int HEIGHT = ResourceManager.explodes[0].getHeight();
     boolean painting;
     private int step = 0;
 
@@ -14,6 +14,23 @@ public class Explode extends GameObject{
         this.y = y;
         this.painting = painting;
     }
+
+    /**
+     * @return width
+     */
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    /**
+     * @return height
+     */
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     @Override
     public void paint(Graphics g) {
         if (step++ < ResourceManager.explodes.length - 1) {

@@ -18,8 +18,24 @@ public class Bullet extends GameObject{
         this.direction = direction;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
-        GameModel.INSTANCE.add(this);
     }
+
+    /**
+     * @return width
+     */
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    /**
+     * @return height
+     */
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     @Override
     public void paint(Graphics g) {
         move();

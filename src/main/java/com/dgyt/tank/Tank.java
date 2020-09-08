@@ -26,6 +26,22 @@ public class Tank extends GameObject{
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
     }
 
+    /**
+     * @return width
+     */
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    /**
+     * @return height
+     */
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     @Override
     public void paint(Graphics g) {
         if (!alive) {
@@ -141,7 +157,7 @@ public class Tank extends GameObject{
     public void die() {
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
-        int eY = y + (Tank.HEIGHT - Explode.Height) / 2;
+        int eY = y + (Tank.HEIGHT - Explode.HEIGHT) / 2;
         GameModel.INSTANCE.add(new Explode(eX, eY, true));
     }
 
