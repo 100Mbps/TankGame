@@ -16,10 +16,12 @@ public class ColliderChain implements Collider{
         chain.add(new BulletTankCollider());
     }
     @Override
-    public void collide(GameObject o1,GameObject o2){
+    public boolean  collide(GameObject o1,GameObject o2){
         for(Collider collider :chain){
-            collider.collide(o1,o2);
+           boolean flag =  collider.collide(o1,o2);
+           if(!flag) return false;
         }
+        return true;
     }
 
 }
