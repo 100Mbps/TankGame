@@ -14,7 +14,7 @@ public class Utils {
         static final Random randomNumberGenerator = new Random();
     }
 
-    public  static Direction randowmDirection(Direction original){
+    public  static Direction randomDirection(Direction original){
         int nextDirection = RandomNumberGeneratorHolder.randomNumberGenerator.nextInt(4);
         Direction  newDirection = original;
         while (newDirection == original) {
@@ -22,6 +22,20 @@ public class Utils {
             nextDirection = RandomNumberGeneratorHolder.randomNumberGenerator.nextInt(4);
         }
         return newDirection;
+    }
+    public  static Direction reverseDirection(Direction original){
+        switch (original){
+            case LEFT: return Direction.RIGHT;
+            case RIGHT: return Direction.LEFT;
+            case UP: return Direction.DOWN;
+            case DOWN: return Direction.UP;
+            default: return null;
+        }
+
+
+
+
+
     }
 
 }

@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public class GameModel {
     final java.util.List<GameObject> gos = new ArrayList<>();
-    Collider collider = new BulletTankCollider();
-    Collider collider2 = new TankCollider();
     public final Tank mainTank ;
     private final ColliderChain chain = new ColliderChain();
 
@@ -25,6 +23,8 @@ public class GameModel {
         for (int i = 0; i < initTankCount; i++) {
             add(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD, this));
         }
+        Wall wall = new Wall(0,50,600,10);
+        gos.add(wall);
     }
 
     public void add(GameObject go){

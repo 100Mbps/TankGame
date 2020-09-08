@@ -151,6 +151,6 @@ public class Tank extends GameObject{
      * 改变方向
      */
     public void randomDirection() {
-       this.direction =  Utils.randowmDirection(this.direction);
+       this.direction =  Utils.randomDirection(this.direction);
     }
 }

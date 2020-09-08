@@ -14,6 +14,7 @@ public class ColliderChain implements Collider{
     public ColliderChain(){
         chain.add(new TankCollider());
         chain.add(new BulletTankCollider());
+        chain.add(new TankWallCollider());
     }
     @Override
     public boolean  collide(GameObject o1,GameObject o2){
