@@ -7,26 +7,24 @@ public class Bullet extends GameObject{
     public static final int WIDTH = ResourceManager.bulletL.getWidth();
     public static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private static final int SPEED = 10;
-    private final GameModel gm;
     public final Group group;
     Rectangle rect;
     Direction direction;
     private boolean alive = true;
 
-    public Bullet(int x, int y, Direction direction, Group group, GameModel gm) {
+    public Bullet(int x, int y, Direction direction, Group group) {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
-        this.gm.add(this);
+        GameModel.INSTANCE.add(this);
     }
     @Override
     public void paint(Graphics g) {
         move();
         if (!alive) {
-            gm.remove(this);
+            GameModel.INSTANCE.remove(this);
             return;
         }
         switch (direction) {

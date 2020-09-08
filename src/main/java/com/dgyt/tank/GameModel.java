@@ -12,19 +12,24 @@ import java.util.ArrayList;
  *
  */
 public class GameModel {
+
+    public static  final GameModel INSTANCE = new GameModel();
+
     final java.util.List<GameObject> gos = new ArrayList<>();
     public final Tank mainTank ;
     private final ColliderChain chain = new ColliderChain();
 
 
-    public GameModel(){
+    private GameModel(){
         int initTankCount = Integer.parseInt(PropertyManager.get("initTankCount").toString());
-        mainTank = new Tank(80, 120, Direction.UP, Group.GOOD, this);
+        mainTank = new Tank(80, 120, Direction.UP, Group.GOOD);
         for (int i = 0; i < initTankCount; i++) {
-            add(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD, this));
+            add(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD));
         }
         Wall wall = new Wall(0,50,600,10);
+        Wall wall2 = new Wall(650,50,10,500);
         gos.add(wall);
+        gos.add(wall2);
     }
 
     public void add(GameObject go){

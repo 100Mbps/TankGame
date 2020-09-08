@@ -9,7 +9,6 @@ import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
     final static int GAME_WIDTH = 1200, GAME_HEIGHT = 600;
-    final GameModel gm = new GameModel();
     Image offScreenImage = null;
 
     public TankFrame(String name) {
@@ -30,7 +29,7 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        gm.paint(g);
+        GameModel.INSTANCE.paint(g);
     }
 
     // 造成原因为，屏幕的刷新频率高于画的频率，
@@ -87,7 +86,7 @@ public class TankFrame extends Frame {
         }
 
         public void keyReleased(KeyEvent e) {
-            Tank mainTank = gm.mainTank;
+            Tank mainTank = GameModel.INSTANCE.mainTank;
             int keyCode = e.getKeyCode();
             switch (keyCode) {
                 case KeyEvent.VK_LEFT:
@@ -112,7 +111,7 @@ public class TankFrame extends Frame {
         }
 
         private void setMainDirection() {
-            Tank mianTank = gm.mainTank;
+            Tank mianTank = GameModel.INSTANCE.mainTank;
             if (!bL && !bR && !bU && !bD) {
                 mianTank.setMoving(false);
             } else {

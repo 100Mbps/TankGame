@@ -10,7 +10,6 @@ public class Tank extends GameObject{
     public static final int WIDTH = ResourceManager.tankL.getWidth();
     public static final int HEIGHT = ResourceManager.tankL.getHeight();
     private static final int SPEED = 5;
-    final GameModel gm;
     private final Random random = new Random();
     Rectangle rect;
     Group group;
@@ -19,11 +18,10 @@ public class Tank extends GameObject{
     private boolean moving = true;
     private int time;
 
-    public Tank(int x, int y, Direction direction, Group group, GameModel gm) {
+    public Tank(int x, int y, Direction direction, Group group) {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x, y, WIDTH, HEIGHT);
     }
@@ -31,7 +29,7 @@ public class Tank extends GameObject{
     @Override
     public void paint(Graphics g) {
         if (!alive) {
-            gm.remove(this);
+            GameModel.INSTANCE.remove(this);
             return;
         }
         switch (direction) {
@@ -144,7 +142,7 @@ public class Tank extends GameObject{
         alive = false;
         int eX = x + (Tank.WIDTH - Explode.WIDTH) / 2;
         int eY = y + (Tank.HEIGHT - Explode.Height) / 2;
-        gm.add(new Explode(eX, eY, true, this.gm));
+        GameModel.INSTANCE.add(new Explode(eX, eY, true));
     }
 
     /**
