@@ -19,13 +19,14 @@ public class GameModel {
     public final Tank mainTank ;
     private final ColliderChain chain = new ColliderChain();
 
-
     private GameModel(){
         int initTankCount = Integer.parseInt(PropertyManager.get("initTankCount").toString());
         mainTank = new Tank(80, 120, Direction.UP, Group.GOOD);
         for (int i = 0; i < initTankCount; i++) {
             //敌人坦克加壳后，碰撞策略失效，再也打不死了，
-            add(new RectDecorator(new TailDecorator(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD))));
+            //add(new RectDecorator(new TailDecorator(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD))));
+            add(new Tank(50 * i + 50, 80, Direction.DOWN, Group.BAD));
+
         }
         Wall wall = new Wall(0,50,600,10);
         Wall wall2 = new Wall(650,50,10,500);

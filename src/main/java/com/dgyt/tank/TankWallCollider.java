@@ -18,7 +18,7 @@ public class TankWallCollider implements Collider{
             Wall wall = (Wall) o1;
             Tank tank = (Tank) o2;
             if(wall.rect.intersects(tank.rect)){
-                tank.direction = Utils.reverseDirection(tank.direction);
+                tank.direction = Utils.randomDirection(tank.direction);
                 return  false;
             }
         }else if(o2 instanceof Wall && o1 instanceof Tank){
