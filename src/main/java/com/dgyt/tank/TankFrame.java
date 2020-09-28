@@ -17,6 +17,12 @@ public class TankFrame extends Frame {
         super.setName(name);
         super.setTitle(name);
         super.setSize(GAME_WIDTH, GAME_HEIGHT);
+        //如果自己实现window listener需要实现多个方法，而adapter 已经实现了所有空方法，用户可以仅实现自己关心的方法。
+        /**
+         * 非adapter 模式
+         * @see  java.awt.event.WindowListener
+         * @see  java.awt.event.WindowAdapter
+         */
         super.addWindowListener(new WindowAdapter() {
             // close frame
             @Override
